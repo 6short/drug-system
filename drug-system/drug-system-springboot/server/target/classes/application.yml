@@ -1,0 +1,53 @@
+server:
+  port:8080
+
+spring:
+  config:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.74.128:3306/drug_system?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 192.168.74.128
+      port: 6379
+      password:
+      database: 0
+  security:
+    user:
+      name: admin      # Spring Security 登录用户名
+      password: 123456 # Spring Security 登录密码
+
+  mail:
+    host: smtp.qq.com
+    username: 1226256458@qq.com
+    password: rybgkxknecaigjgc
+    port: 465
+    properties:
+        mail.smtp.ssl.enable: true
+
+mybatis:
+
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+    map-underscore-to-camel-case: true
+
+login-reg:
+  jwt:
+    admin-secret-key: admin_handsome_2025_super_secret_key_my
+    admin-ttl: 864000000
+    admin-token-name: Authorization
+
+    user-secret-key: user_handsome_2025_super_secret_key_my
+    user-ttl: 864000000
+    user-token-name: Authorization
+
+    doctor-secret-key: doctor_handsome_2025_super_secret_key_my
+    doctor-ttl: 864000000
+    doctor-token-name: Authorization
+
